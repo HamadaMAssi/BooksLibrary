@@ -1,0 +1,1250 @@
+/* ________________________________ start variables ___________________________________ */
+:root {
+    --main-color: #C21010;
+    --secondary-color: #E64848;
+    --third-color: #FFFDE3;
+    --background: #CFE8A9;
+    --transparent-color: rgb(15 116 143 / 70%);
+    --section-padding: 100px;
+    --main-transition: 0.5s;
+    --main-delay: 0.2s;
+}
+
+/* ______________________________________ end variables _______________________________________ */
+/*______________________________________ Start Global Rules ______________________________________*/
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+::selection {
+    background: #cee7e5;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.main-heading {
+    margin: 0 auto 50px;
+    width: fit-content;
+    padding: 15px 20px;
+    font-size: 35px;
+    color: rgb(0 0 0 / 60%);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    z-index: 1;
+    position: relative;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+}
+
+.main-heading::before,
+.main-heading::after {
+    content: "";
+    width: 100%;
+    height: 5px;
+    background-color: var(--main-color);
+    position: absolute;
+    left: 0;
+
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.main-heading::before {
+    top: 0;
+}
+
+.main-heading::after {
+    bottom: 0;
+}
+
+.main-heading:hover {
+    color: white;
+    transition-delay: 0.3s;
+}
+
+.main-heading:hover::before,
+.main-heading:hover::after {
+    height: 55%;
+    background-color: var(--main-color);
+    z-index: -1;
+}
+
+button,
+.button {
+    text-transform: uppercase;
+    text-align: center;
+    width: fit-content;
+    padding: 10px 20px;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    background-color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+    position: relative;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+button:hover,
+.button:hover {
+    color: white;
+    border-color: white;
+    background-color: var(--main-color);
+}
+
+input:focus {
+    outline: none;
+}
+
+/*______________________________________ End Global Rules ______________________________________*/
+
+/*______________________________________ start header ________________________________________*/
+
+.header {
+    height: 80px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    border-bottom: 1px solid white;
+}
+
+.header .container .logo p {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.header .container .logo span {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--main-color);
+}
+
+.header .links:hover .icon span:nth-child(2) {
+    width: 100%;
+}
+
+.header .links .icon {
+    width: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+@media (min-width: 992px) {
+    .header .container .links .icon {
+        display: none;
+    }
+}
+
+.header .links .icon span {
+    background-color: var(--main-color);
+    margin-bottom: 5px;
+    height: 2px;
+}
+
+.header .links .icon span:first-child {
+    width: 100%;
+}
+
+.header .links .icon span:nth-child(2) {
+    width: 60%;
+    transition: 0.3s;
+}
+
+.header .links .icon span:last-child {
+    width: 100%;
+}
+
+.header .container .links ul {
+    display: flex;
+    transition: 0.3s;
+}
+
+@media (max-width: 991px) {
+    .header .container .links ul {
+        display: none;
+    }
+
+    .header .container .links {
+        height: 72px;
+        padding: 33px 0;
+    }
+
+    .header .links:hover ul,
+    .header .links ul:hover {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 97%;
+        left: 0;
+        width: 100%;
+        background-color: rgb(0 0 0 / 70%);
+        transition-delay: 0.3s;
+    }
+
+    .header .container .links ul a {
+        border-bottom: 1px solid rgb(128 128 128 / 50%);
+    }
+}
+
+.header .container .links ul a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    position: relative;
+    /*color: var(--secondary-color);
+    */
+    color: white;
+    padding: 0 20px;
+    overflow: hidden;
+    font-size: 15px;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+
+.header .container .links ul a:hover {
+    border-bottom: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.header .container .links ul .active {
+    border-bottom: 2px solid var(--main-color);
+    color: var(--main-color);
+}
+
+/* ______________________________________ end header ___________________________________ */
+/* ______________________________________ start landing ___________________________________ */
+.landing {
+    background-image: url(../images/bac-05.jpg);
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    top: 0;
+    z-index: 1;
+    box-shadow: 0 2px 15px rgb(0 0 0 / 40%);
+}
+
+.landing::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 40%);
+    position: absolute;
+}
+
+.main-search {
+    position: relative;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main-search form {
+    flex-direction: row;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.main-search form input {
+    margin-bottom: 0;
+    background-color: transparent;
+    border-radius: 5px 0px 0px 5px;
+    color: white;
+}
+
+.main-search form button {
+    width: 80px;
+    background-color: transparent;
+    border-radius: 0px 5px 5px 0px;
+    letter-spacing: 0px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.main-search form button:hover {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+@media (max-width:767px) {
+    .main-search form {
+        width: 100%;
+    }
+
+    .main-search form input {
+        width: 80%;
+    }
+
+    .main-search form button {
+        width: 20%;
+    }
+}
+
+.landing .text {
+    position: relative;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    /* background-color: rgb(194 16 16 / 60%); */
+    opacity: 0.7;
+    width: 45%;
+}
+
+.landing .text .content {
+    padding: 15px;
+    color: white;
+    line-height: 2;
+}
+
+.landing .text .content h2 {
+    /* color: #94491c; */
+    color: var(--background);
+    padding: 0 0 14px 20px;
+}
+
+.landing .text .content p {
+    letter-spacing: 1px;
+    padding: 0 0 0 20px;
+}
+
+.landing .text .content a {
+    display: block;
+    padding: 3px 20px;
+    background-color: var(--main-color);
+    width: fit-content;
+    color: white;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+    .landing .text {
+        width: 100%;
+    }
+
+    .landing .text h2 {
+        text-align: center;
+        padding: 0;
+    }
+}
+
+/* ______________________________________ end landing ___________________________________ */
+/* ______________________________________ start services ________________________________ */
+.services {
+    padding: 100px 0;
+}
+
+.services .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 15px;
+}
+
+.services .service {
+    display: flex;
+}
+
+.services .service i {
+    font-size: 30px;
+    padding: 0 20px 0 0;
+    color: var(--main-color);
+}
+
+.services .service .text h2 {
+    color: var(--main-color);
+    text-transform: uppercase;
+    padding: 0 0 20px;
+}
+
+.services .service .text p {
+    color: #777;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+}
+
+
+/* ______________________________________ end services ___________________________________ */
+/* ___________________________________ start scroll-up ________________________________ */
+.scroll-up {
+    background-color: #777;
+}
+
+.scroll-up .go-up {
+    color: var(--main-color);
+    color: white;
+    bottom: 30px;
+    right: 1%;
+    transform: translateX(-50%);
+    transition: var(--main-transition);
+    position: fixed;
+    z-index: 0;
+    opacity: 0.7;
+}
+
+.scroll-up .go-up:hover {
+    opacity: 1;
+}
+
+.scroll-up .go-up i {
+    animation: bouncing 1.3s infinite;
+    font-size: 24px;
+    -webkit-animation: bouncing 1.3s infinite;
+}
+
+.scroll-up .go-up:hover i {
+    animation: bouncing 0.8s infinite;
+    -webkit-animation: bouncing 0.8s infinite;
+}
+
+/* ____________________________________ end scroll-up _________________________________ */
+/* ______________________________________ start ads ___________________________________ */
+.ads {
+    background-color: #ececec;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 10px;
+}
+
+
+.ads .book-img img {
+    height: 260px;
+    border-radius: 12px;
+    position: relative;
+    animation: up-and-down 5s linear infinite;
+    -webkit-animation: up-and-down 4s linear infinite;
+}
+
+.ads .text {
+    padding-left: 50px;
+}
+
+.ads .text h2 {
+    color: var(--main-color);
+    font-weight: 800;
+    font-size: 35px;
+    padding-bottom: 20px;
+}
+
+.ads .text p {
+    font-size: 14px;
+}
+
+@media (max-width:767px) {
+    .ads {
+        flex-direction: column;
+    }
+}
+
+/* ______________________________________ end ads ___________________________________ */
+/* ______________________________________ start books ___________________________________ */
+.books {
+    padding: 100px 0 0;
+    /* background-image: linear-gradient(var(--secondary-color), var(--main-color)); */
+}
+
+.books .bac {
+    background-image: url(../images/landing-5.jpg);
+    background-size: cover;
+    box-shadow: 0 -3px 6px 0 rgb(0 0 0 / 20%), 0 -4px 15px 0 rgb(0 0 0 / 19%);
+}
+
+.books .category {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 0 0 40px;
+}
+
+
+.books .bac .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(184px, 1fr));
+    row-gap: 25px;
+    column-gap: 10px;
+    padding: 30px;
+}
+
+@media (max-width:767px) {
+    .books .bac .container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        row-gap: 25px;
+        column-gap: 10px;
+    }
+
+    .books .category {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .books .category button {
+        width: 100%;
+    }
+}
+
+.books .container .book {
+    max-width: 200px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+
+.books .container .book a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.books .container a::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    top: -100%;
+    left: 0;
+    opacity: 15%;
+
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+
+.books .container .book:hover a::before {
+    transition-delay: var(--main-delay);
+    top: 0;
+}
+
+.books .container .book .poster {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.books .container .book .content {
+    /* display: none; */
+    position: absolute;
+    /* background-color: white; */
+    width: 100%;
+    bottom: -100%;
+    text-align: center;
+    color: #333;
+    height: 50%;
+
+
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+
+.books .container .book .content::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 50%;
+    background-color: #d3b6b6;
+    box-shadow: 0px 15px 50px 70px #d3b6b6;
+}
+
+.books .container .book .content .title {
+    padding: 20px 0 5px;
+    font-size: 17px;
+    position: relative;
+    color: var(--main-color);
+}
+
+.books .container .book .content .auther {
+    font-size: 15px;
+    position: relative;
+}
+
+.books .container .book:hover {
+    transition-delay: var(--main-delay);
+    /* box-shadow: 1px 1px 20px -7px var(--main-color); */
+    box-shadow: 1px 1px 10px 10px var(--main-color);
+    border-color: var(--main-color);
+}
+
+.books .container .book:hover .content {
+    transition-delay: var(--main-delay);
+    display: block;
+    bottom: 0;
+}
+
+.wall {
+    padding: 100px 0;
+    background-color: #ececec;
+}
+
+/* ______________________________________ end books ___________________________________ */
+/* ______________________________________ end footer ___________________________________ */
+.footer {
+    padding: 50px;
+    background-image: url("../images/moon-2.jpg");
+    background-size: cover;
+    position: relative;
+    color: white;
+    text-align: center;
+    box-shadow: 0 -3px 6px 0 rgb(0 0 0 / 20%), 0 -4px 15px 0 rgb(0 0 0 / 19%);
+}
+
+.footer::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 70%);
+}
+
+.footer .container {
+    position: relative;
+}
+
+.footer h2 {
+    margin-bottom: 20px;
+    color: var(--main-color);
+    letter-spacing: 5px;
+    font-size: 35px;
+}
+
+.footer p:not(.copyright) {
+    text-transform: uppercase;
+    padding: 20px;
+    border-bottom: 1px solid white;
+    font-size: 22px;
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.footer .social-icons i {
+    padding: 10px 15px;
+}
+
+.footer .logo p {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.footer .logo span {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--main-color);
+}
+
+@media (max-width: 767px) {
+    .footer h2 {
+        font-size: 20px;
+    }
+}
+
+/* ______________________________________ end footer ___________________________________ */
+
+/*_____________________________________________________________________________________*/
+/*___________________________________ log in page ___________________________________*/
+/*_____________________________________________________________________________________*/
+
+
+.login {
+    position: relative;
+    height: 100vh;
+    padding: 100px 0 0;
+}
+
+.login .container {
+    align-items: center;
+}
+
+.login img {
+    max-width: 100%;
+}
+
+.login form p {
+    padding: 15px 0 0;
+}
+
+.login form input {
+    color: #333;
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-bottom: 1px solid #777;
+}
+
+.login .text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    padding-bottom: 40px;
+}
+
+.login .text .box input {
+    width: auto;
+    padding: auto;
+}
+
+/*_____________________________________________________________________________________*/
+/*___________________________________ contact.php ___________________________________*/
+/*_____________________________________________________________________________________*/
+
+.img-header {
+    background-image: url(../images/moon-2.jpg);
+    background-size: cover;
+    box-shadow: 0px 0px 10px 1px black;
+    position: relative;
+}
+
+.img-header .container {
+    border-bottom: none;
+}
+
+.contact {
+    padding: 100px 0;
+}
+
+.contact form textarea {
+    padding: 10px;
+}
+
+.contact form textarea {
+    height: 200px;
+}
+
+.contact form button {
+    margin: 10px;
+}
+
+.contact .text {
+    text-align: center;
+    padding: 0 0 50px;
+    line-height: 1.5;
+}
+
+.contact .text p {
+    padding: 10px;
+    color: #363838;
+}
+
+.contact .text span {
+    color: var(--main-color);
+}
+
+
+/*_____________________________________________________________________________________*/
+/*___________________________________ about.php ___________________________________*/
+/*_____________________________________________________________________________________*/
+
+/* start Thoughts */
+.thoughts {
+    padding: 100px 0;
+    background-color: #ececec;
+}
+
+.thoughts .container-fluid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.thoughts .thought {
+    padding: 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: 0 0px 4px rgb(0 0 0 / 20%);
+}
+
+.thoughts .thought p {
+    padding: 5px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.thoughts .c-1 {
+    background-color: var(--background);
+
+}
+
+.thoughts .c-2 {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.thoughts .c-3 {
+    background-color: gray;
+    color: white;
+}
+
+.thoughts .c-4 {
+    background-color: #d3b6b6;
+}
+
+/* end Thoughts */
+
+/* start team */
+.team {
+    padding: 100px 0;
+    background-color: white;
+}
+
+.team .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.team .box {
+    border-radius: 5px;
+    padding: 10px;
+    transition: var(--main-transition);
+    border: 1px solid #777;
+    box-shadow: 0 0 5px gray;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+
+.team .box .data {
+    display: flex;
+    background-color: #ececec;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.team .box .data img {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+
+.team .box .data .social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 15px;
+}
+
+.team .box .data .social a:hover i {
+    color: var(--main-color);
+}
+
+.team .box .text {
+    padding: 15px 0;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+    position: relative;
+    text-align: center;
+}
+
+.team .box .text::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: var(--main-color);
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+
+.team .box:hover .text::before {
+    width: 100%;
+    height: 5px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.team .box:hover {
+    border-color: var(--main-color);
+    box-shadow: 0 0 5px var(--secondary-color);
+}
+
+.team .box:hover img {
+    transform: translateY(-5px);
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+
+
+}
+
+.team .box:hover .text {
+    transform: translateY(5px);
+    -webkit-transform: translateY(5px);
+    -moz-transform: translateY(5px);
+    -ms-transform: translateY(5px);
+    -o-transform: translateY(5px);
+
+    color: var(--main-color);
+}
+
+/* end team */
+/* start testimonials */
+.testimonials {
+    padding: 100px 0;
+    position: relative;
+    background-color: #ececec;
+}
+
+.testimonials .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.testimonials .box {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
+    border-radius: 6px;
+    position: relative;
+}
+
+.testimonials .box img {
+    position: absolute;
+    right: 60px;
+    top: -39px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 10px solid #ececec;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+
+.testimonials .box h3 {
+    margin: 0 0 10px;
+    font-size: 17px;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+
+.testimonials .box .title {
+    color: #777;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 16px;
+    font-size: 15px;
+}
+
+.testimonials .box .rate .filled {
+    color: #ffc107;
+}
+
+.testimonials .box p {
+    line-height: 1.5;
+    color: #777;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+.testimonials .box:hover {
+    box-shadow: 0 0px 10px rgb(0 0 0 / 17%);
+}
+
+.testimonials .box:hover img {
+    right: 15px;
+    width: 105px;
+    height: 105px;
+}
+
+.testimonials .box:hover h3 {
+    font-weight: 800;
+}
+
+/* end testimonials */
+
+/*_____________________________________________________________________________________*/
+/*___________________________________ admin.php ___________________________________*/
+/*_____________________________________________________________________________________*/
+.admin {
+    padding: 100px 0;
+}
+
+.admin .text {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+    color: #333;
+    padding-bottom: 40px;
+}
+
+.admin .text h3 {
+    color: var(--main-color);
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+}
+
+.admin .text span {
+    color: var(--main-color);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 100px 50px 100px;
+}
+
+@media (max-width:767px) {
+    form {
+        padding: 0 0 50px 0;
+    }
+}
+
+form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #777;
+}
+
+form .file {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* start operations */
+.operations {
+    padding: 0 0 50px;
+}
+
+.table-area {
+    padding-bottom: 40px;
+    max-height: 500px;
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 15px;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* end operations */
+.search,
+.edit-user,
+.edit-book {
+    background-color: #ececec;
+    padding: 15px 0 0;
+}
+
+.add-user,
+.delete-user,
+.add-book,
+.delete-book {
+    background-color: white;
+    padding: 15px 0 0;
+}
+
+.spikes {
+    position: relative;
+}
+
+.spikes::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    z-index: 1;
+    top: -1px;
+}
+
+.spikes-white-gray::after {
+    background-image: linear-gradient(135deg, white 25%, transparent 25%),
+        linear-gradient(225deg, white 25%, transparent 25%);
+}
+
+.spikes-gray-white::after {
+    background-image: linear-gradient(135deg, #ececec 25%, transparent 25%),
+        linear-gradient(225deg, #ececec 25%, transparent 25%);
+}
+
+@media (max-width:767px) {
+    .main-heading {
+        font-size: 20px;
+    }
+
+}
+
+/*_____________________________________________________________________________________*/
+/*___________________________________ book_downloads.php ___________________________________*/
+/*_____________________________________________________________________________________*/
+.show-book {
+    padding: 100px 0;
+}
+
+.show-book .text .info {
+    display: flex;
+    font-size: 15px;
+    justify-content: space-evenly;
+    color: var(--main-color);
+}
+
+.show-book .text .description {
+    line-height: 1.7;
+    padding: 20px 0;
+}
+
+.show-book .text .download .read {
+    display: inline-block;
+    width: 150px;
+}
+
+
+/*___________________________________ Start Animation ___________________________________*/
+@keyframes up-and-down {
+
+    0%,
+    100% {
+        top: 0;
+    }
+
+    60% {
+        top: -50px;
+    }
+}
+
+@keyframes bouncing {
+
+    0%,
+    50%,
+    100% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+
+    30%,
+    70% {
+        transform: translateY(-5px);
+        -webkit-transform: translateY(-5px);
+        -moz-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        -o-transform: translateY(-5px);
+    }
+}
+
+/*___________________________________ end Animation ___________________________________*/
